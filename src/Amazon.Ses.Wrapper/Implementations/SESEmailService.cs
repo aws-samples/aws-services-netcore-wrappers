@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Amazon.SecurityToken;
-using Amazon.SecurityToken.Model;
 using Amazon.SimpleEmail;
 using Amazon.SimpleEmail.Model;
 using Microsoft.Extensions.Logging;
@@ -47,7 +46,7 @@ namespace Amazon.Ses.Wrapper
         /// <param name="cc"></param>
         /// <param name="bcc"></param>
         /// <returns></returns>
-        public async Task<HttpStatusCode> SendEmailAsync(string subject, string body, bool isHtmlBody, List<string> to, 
+        public async Task<HttpStatusCode> SendEmailAsync(string subject, string body, bool isHtmlBody, List<string> to,
             string? sender = null, List<string> cc = null, List<string> bcc = null)
         {
             sender = string.IsNullOrWhiteSpace(sender) ? _emailOptions.Sender : sender;

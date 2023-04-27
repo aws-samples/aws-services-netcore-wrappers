@@ -5,10 +5,7 @@ using AutoFixture;
 using Amazon.Sns.Wrapper.Implementations;
 using Amazon.Sns.Wrapper.Interfaces;
 using Moq;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

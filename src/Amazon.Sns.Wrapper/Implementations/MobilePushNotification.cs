@@ -2,10 +2,8 @@
 using Amazon.SimpleNotificationService.Model;
 using Amazon.Sns.Wrapper.Interfaces;
 using Amazon.Sns.Wrapper.Models;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +16,7 @@ namespace Amazon.Sns.Wrapper.Implementations
         {
             _client = client;
         }
-        
+
         public async Task<string> CreatePlatformApplicationAsync(string name, NotificationPlatform platform, Dictionary<string, string> attributes, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(name))

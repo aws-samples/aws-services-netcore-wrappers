@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Amazon.Sns.Wrapper.Models
+﻿namespace Amazon.Sns.Wrapper.Models
 {
     public enum NotificationPlatform
     {

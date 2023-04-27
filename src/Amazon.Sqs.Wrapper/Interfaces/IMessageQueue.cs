@@ -18,7 +18,7 @@ namespace Amazon.Sqs.Wrapper.Interfaces
         ///     notice of cancellation.</param>
         /// <returns>Returns an int containing HttpStatusCode returned from Amazon SQS</returns>
         Task<int> CreateQueueAsync(string queueName, CancellationToken ct = default);
-        
+
         /// <summary>
         /// Deletes a Amazon Simple Queue Service (SQS) Queue.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Amazon.Sqs.Wrapper.Interfaces
         ///     notice of cancellation.</param>
         /// <returns>Returns an int containing HttpStatusCode returned from Amazon SQS</returns>
         Task<int> DeleteQueueAsync(string queueName, CancellationToken ct = default);
-        
+
         /// <summary>
         /// Sends a message to Amazon Simple Queue Service (SQS) Queue.
         /// </summary>
@@ -36,8 +36,8 @@ namespace Amazon.Sqs.Wrapper.Interfaces
         /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive
         ///     notice of cancellation.</param>
         /// <returns>Returns a tuple containing message id and int containing HttpStatusCode returned from Amazon SQS</returns>
-        Task<(string, int)> SendMessageAsync<TMessage>(TMessage message,string queueUrl = default, CancellationToken ct = default);
-        
+        Task<(string, int)> SendMessageAsync<TMessage>(TMessage message, string queueUrl = default, CancellationToken ct = default);
+
         /// <summary>
         /// Sends a message to Amazon Simple Queue Service (SQS) Queue.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.Sqs.Wrapper.Interfaces
         ///     notice of cancellation.</param>
         /// <returns>Returns a list of IMessage received from Amazon SQS</returns>
         Task<IList<IMessage>> ReceiveMessageAsync(CancellationToken ct = default);
-        
+
         /// <summary>
         /// Deletes a Amazon Simple Queue Service (SQS) Queue.
         /// </summary>

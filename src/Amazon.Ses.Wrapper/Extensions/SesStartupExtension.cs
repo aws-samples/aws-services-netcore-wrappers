@@ -10,7 +10,7 @@ namespace Amazon.Ses.Wrapper
     {
         public static IServiceCollection RegisterSesServices(this IServiceCollection services,
             IConfiguration configuration,
-            string sesConfigSectionName= "SESOptions")
+            string sesConfigSectionName = "SESOptions")
         {
             // Get the AWS profile information from configuration providers
             AWSOptions awsOptions = configuration.GetAWSOptions();

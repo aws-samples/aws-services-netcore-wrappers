@@ -1,9 +1,7 @@
 ﻿using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
 using Amazon.Sns.Wrapper.Interfaces;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,7 +43,7 @@ namespace Amazon.Sns.Wrapper.Implementations
             INotificationTopic topic = new NotificationTopic(name, response.TopicArn, _client);
             return topic;
         }
-       
+
         public async Task<INotificationTopic> GetTopicAsync(string name, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(name))

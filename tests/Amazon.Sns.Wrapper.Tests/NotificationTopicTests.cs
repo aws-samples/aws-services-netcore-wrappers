@@ -6,9 +6,7 @@ using Amazon.Sns.Wrapper.Implementations;
 using Amazon.Sns.Wrapper.Interfaces;
 using Amazon.Sns.Wrapper.Models;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -30,8 +28,8 @@ namespace Amazon.Sns.Wrapper.Tests
         public async Task AddPermissionsIsSuccessful()
         {
             string fakeLabel = "fakeLabel";
-            var fakeAccountIds = new List<string>{ "123456789" };
-            var fakeActionNames = new List<string>{ "Publish" };
+            var fakeAccountIds = new List<string> { "123456789" };
+            var fakeActionNames = new List<string> { "Publish" };
 
             //Setup Fake Response for AddPermissionAsync method 
             _fakeSnsClient.Setup(p => p.AddPermissionAsync(It.IsAny<AddPermissionRequest>(), default))
@@ -137,7 +135,7 @@ namespace Amazon.Sns.Wrapper.Tests
             var response = await Topic.AddAttributeAsync(fakeAttributeName, fakeAttribute);
             Assert.True(response);
         }
-      
+
         [Fact]
         public async Task GetAttributesIsSuccessful()
         {

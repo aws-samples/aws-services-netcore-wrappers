@@ -2,9 +2,21 @@
 
 This is a AWS Services wrapper project providing functionality to use different AWS Services in an simpler way.
 
-Each library has a README file that describes how to use that specific library.
+
 
 It is advised to package each library as a nuget package to consume it.
+
+For quick start instructions, please refer to below table which has link to individual library.
+
+| Name                                                                  | Description                                                                                                           |
+|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [Amazon.DynamoDb.Wrapper](src/Amazon.DynamoDb.Wrapper/README.MD)                                   | This library is an implementation of repository pattern in C# to connect .NET applications with DynamoDB.      |
+| [Amazon.S3.Wrapper](src/Amazon.S3.Wrapper/README.MD)                           | This library is a wrapper allowing you to perform operations against S3 storage. It uses multiple Amazon.S3 nuget packages and makes use of Amazon.S3.Transfer nuget package to provide multi-part upload functionality.                                                                  |
+| [Amazon.SecretManager.Wrapper](src/Amazon.SecretManager.Wrapper/README.MD) | This library is a wrapper allowing you to fetch secrets from secret manager. It uses Amazon.SecretsManager nuget packages.                         |
+| [Amazon.Ses.Wrapper](src/Amazon.Ses.Wrapper/README.MD)       | This library is a wrapper allowing you to perform operations against Simple Email Service (SES). It uses multiple Amazon.SimpleEmail nuget packages to provide functionality to send email, send email with attachment.                                                      |
+| [Amazon.Sns.Wrapper](src/Amazon.Sns.Wrapper/README.md) | This library is a wrapper allowing you to perform operations against Simple Notification Service (SNS). It uses multiple Amazon.SimpleNotificationService nuget packages to provide functionality to create sns topic, create subscription, delete topic, delete subscription, subscribe to a topic, publish notification via different channels like mobile, email, sqs, sms, http, etc.                                                                            |
+| [Amazon.Sqs.Wrapper](src/Amazon.Sqs.Wrapper/README.MD) | This library is a wrapper allowing you to perform operations against Simple Queue Service (SQS). It uses multiple Amazon.SQS nuget packages to provide functionality to create queue, delete queue, send, receive and delete message from SQS queue.       |
+
 
 ## Security
 
@@ -12,5 +24,4 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 ## License
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
