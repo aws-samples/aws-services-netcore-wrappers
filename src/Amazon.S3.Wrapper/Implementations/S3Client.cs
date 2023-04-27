@@ -104,17 +104,17 @@ namespace Amazon.S3.Wrapper
                     ContentType = requestContentType.Value(),
                     InputStream = content
                 };
-               await transferUtility.UploadAsync(request, cancellationToken);
-               return true;
+                await transferUtility.UploadAsync(request, cancellationToken);
+                return true;
             }
             catch (Exception e)
             {
-                var errorMessage = $"Error encountered {e.Message}.{ Environment.NewLine}" +
+                var errorMessage = $"Error encountered {e.Message}.{Environment.NewLine}" +
                     $"It was not possible to upload the object.{Environment.NewLine}" +
                     $"BucketName: {_bucketName}{Environment.NewLine}" +
                     $"Key: {key}{Environment.NewLine}" +
                     $"ContentBody: {content}{Environment.NewLine}";
-                
+
                 //TODO: Try to abort the upload using upload id
                 await transferUtility.AbortMultipartUploadsAsync(_bucketName, DateTime.Now);
                 throw new AmazonS3ClientException(errorMessage, e);
@@ -172,7 +172,7 @@ namespace Amazon.S3.Wrapper
             }
             catch (Exception e)
             {
-                var errorMessage = $"Error encountered {e.Message}.{ Environment.NewLine}" +
+                var errorMessage = $"Error encountered {e.Message}.{Environment.NewLine}" +
                     $"It was not possible to upload the object.{Environment.NewLine}" +
                     $"BucketName: {_bucketName}{Environment.NewLine}" +
                     $"Key: {key}{Environment.NewLine}" +
@@ -209,7 +209,7 @@ namespace Amazon.S3.Wrapper
             }
             catch (Exception e)
             {
-                var errorMessage = $"Error encountered {e.Message}.{ Environment.NewLine}" +
+                var errorMessage = $"Error encountered {e.Message}.{Environment.NewLine}" +
                     $"It was not possible to get the object.{Environment.NewLine}" +
                     $"BucketName: {_bucketName}{Environment.NewLine}" +
                     $"Key: {key}{Environment.NewLine}";
@@ -243,7 +243,7 @@ namespace Amazon.S3.Wrapper
             }
             catch (Exception e)
             {
-                var errorMessage = $"Error encountered {e.Message}.{ Environment.NewLine}" +
+                var errorMessage = $"Error encountered {e.Message}.{Environment.NewLine}" +
                    $"It was not possible to delete the object.{Environment.NewLine}" +
                    $"BucketName: {_bucketName}{Environment.NewLine}" +
                    $"Key: {key}{Environment.NewLine}";
@@ -282,7 +282,7 @@ namespace Amazon.S3.Wrapper
             }
             catch (Exception e)
             {
-                var errorMessage = $"Error encountered {e.Message}.{ Environment.NewLine}" +
+                var errorMessage = $"Error encountered {e.Message}.{Environment.NewLine}" +
                    $"It was not possible to delete the objects.{Environment.NewLine}" +
                    $"BucketName: {_bucketName}{Environment.NewLine}" +
                    $"Key: {string.Join(",", keys)}{Environment.NewLine}";

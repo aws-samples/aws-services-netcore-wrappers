@@ -3,9 +3,6 @@ using Amazon.Sns.Wrapper.Implementations;
 using Amazon.Sns.Wrapper.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Amazon.Sns.Wrapper.Extensions
 {
@@ -16,7 +13,7 @@ namespace Amazon.Sns.Wrapper.Extensions
                                                         string snsConfigSectionName)
         {
             services.AddAWSService<IAmazonSimpleNotificationService>(config.GetAWSOptions(snsConfigSectionName));
-            return services.AddSingleton< INotificationService,NotificationService>();
+            return services.AddSingleton<INotificationService, NotificationService>();
         }
     }
 }

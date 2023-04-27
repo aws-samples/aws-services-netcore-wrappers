@@ -2,7 +2,6 @@
 using Amazon.SimpleNotificationService.Model;
 using Amazon.Sns.Wrapper.Interfaces;
 using Amazon.Sns.Wrapper.Models;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -7,7 +7,7 @@ namespace Amazon.Sqs.Wrapper
     /// </summary>
     public class SqsMessage : IMessage
     {
-        public string Id { get ; set ; } //Receipt Handle for SQS Message as its required for message deletion
-        public string Body { get ; set ; }
+        public string Id { get; set; } //Receipt Handle for SQS Message as its required for message deletion
+        public string Body { get; set; }
     }
 }
