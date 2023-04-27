@@ -18,7 +18,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive
         ///     notice of cancellation.</param>
         /// <returns>Returns the entity retrieved from Amazon DynamoDB</returns>
-        Task<TEntity> GetByPrimaryKey(object partitionKey);
+        Task<TEntity> GetByPrimaryKeyAsync(object partitionKey);
 
         /// <summary>
         /// Retrieves an item from a table. It uses the primary key made up of Partition key and sort key
@@ -27,34 +27,34 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// <param name="partitionKey">partitionKey of the item to be retrieved
         /// <param name="sortKey">sortKey of the item to be retrieved
         /// <returns>Returns the entity retrieved from Amazon DynamoDB</returns>
-        Task<TEntity> GetByPrimaryKey(object partitionKey, object sortKey);
+        Task<TEntity> GetByPrimaryKeyAsync(object partitionKey, object sortKey);
         
         /// <summary>
         /// Saves the specified object in the table
         /// If the primary key specified in the input object doesn't exist in the table, the method adds a new item to the table.
         /// </summary>
         /// <param name="entity">entity to be created/updated in the table
-        Task Save(TEntity entity);
+        Task SaveAsync(TEntity entity);
 
         /// <summary>
         /// Deletes an item from the table
         /// The method requires the primary key of the item in the entity object you want to delete. 
         /// </summary>
         /// <param name="entity">entity to be created/updated in the table
-        Task Delete(TEntity entity);
+        Task DeleteAsync(TEntity entity);
 
         /// <summary>
         /// Deletes an item from the table
         /// </summary>
         /// <param name="partitionKey">partition key of the item to be deleted
-        Task Delete(object partitionKey);
+        Task DeleteAsync(object partitionKey);
 
         /// <summary>
         /// Deletes an item from the table
         /// </summary>
         /// <param name="partitionKey">partitionKey of the item to be deleted
         /// <param name="sortKey">sortKey of the item to be deleted
-        Task Delete(object partitionKey, object sortKey);
+        Task DeleteAsync(object partitionKey, object sortKey);
 
         /// <summary>
         /// Saves the specified object to the Amazon DynamoDB table
@@ -64,7 +64,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// </summary>
         /// <param name="queryOperationConfig">queryOperationConfig object containing QueryFilter and/or Expression to be used for querying the table
         /// <returns>Returns the IEnumerable containing one or more entities retrieved from DynamoDB</returns>
-        Task<IEnumerable<TEntity>> Query(QueryOperationConfig queryOperationConfig);
+        Task<IEnumerable<TEntity>> QueryAsync(QueryOperationConfig queryOperationConfig);
         
         /// <summary>
         /// Saves the specified object to the Amazon DynamoDB table
@@ -77,7 +77,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// <param name="indexName">Optional index name if search needs to be against the index
         /// <param name="attributesToGet">Optional list of attributesToGet
         /// <returns>Returns the IEnumerable containing one or more entities retrieved from DynamoDB</returns>
-        Task<IEnumerable<TEntity>> Query(QueryFilter filter, bool backwardSearch = false, string indexName = "", List<string>? attributesToGet = null);
+        Task<IEnumerable<TEntity>> QueryAsync(QueryFilter filter, bool backwardSearch = false, string indexName = "", List<string>? attributesToGet = null);
         
         /// <summary>
         /// Performs an entire table scan.
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// <param name="filter">filter to be used for scan
         /// <param name="attributesToGet">Optional list of attributesToGet
         /// <returns>Returns the IEnumerable containing one or more entities retrieved from DynamoDB</returns>
-        Task<IEnumerable<TEntity>> Scan(ScanFilter filter, List<string>? attributesToGet = null);
+        Task<IEnumerable<TEntity>> ScanAsync(ScanFilter filter, List<string>? attributesToGet = null);
         
         /// <summary>
         /// Gets the items from the table in a batch.
@@ -95,7 +95,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// </summary>
         /// <param name="partitionKeys">List of partitionKeys of the items to be retrieved
         /// <returns>Returns the IEnumerable containing one or more entities retrieved from DynamoDB</returns>
-        Task<IEnumerable<TEntity>> BatchGet(List<object> partitionKeys);
+        Task<IEnumerable<TEntity>> BatchGetAsync(List<object> partitionKeys);
         
         /// <summary>
         /// Gets the items from the table in a batch.
@@ -103,7 +103,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// </summary>
         /// <param name="partitionAndSortKeys">List of tuple containing partition and sort keys of the items to be retrieved
         /// <returns>Returns the IEnumerable containing one or more entities retrieved from DynamoDB</returns>
-        Task<IEnumerable<TEntity>> BatchGet(List<Tuple<object, object>> partitionAndSortKeys);
+        Task<IEnumerable<TEntity>> BatchGetAsync(List<Tuple<object, object>> partitionAndSortKeys);
         
         /// <summary>
         /// This method puts or deletes multiple items in DynamoDB table in a batch.
@@ -111,13 +111,13 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// </summary>
         /// <param name="entitiesToSave">Entities to put</param>
         /// <param name="entitiesToDelete">Entities to delete</param>
-        Task BatchWrite(List<TEntity> entitiesToSave, List<TEntity> entitiesToDelete);
+        Task BatchWriteAsync(List<TEntity> entitiesToSave, List<TEntity> entitiesToDelete);
         
         /// <summary>
         /// Saves the specified object based on conditionExpression to the table
         /// </summary>
         /// <param name="entity">entity to be created/updated in the table
         /// <param name="conditionExpression">conditionExpression to specify that the item can be replaced only if the existing item has the ISBN attribute with a specific value </param>
-        Task Save(TEntity entity, string conditionExpression);
+        Task SaveAsync(TEntity entity, string conditionExpression);
     }
 }

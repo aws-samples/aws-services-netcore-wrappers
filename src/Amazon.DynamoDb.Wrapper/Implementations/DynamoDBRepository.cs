@@ -24,7 +24,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html for more details
         /// </summary>
         /// <param name="batchRequests">List of TransactWriteItem</param>
-        public async Task RunTransaction(List<TransactWriteItem> transactWriteItems)
+        public async Task RunTransactionAsync(List<TransactWriteItem> transactWriteItems)
         {
             var transactWriteItemsRequest = new TransactWriteItemsRequest();
             transactWriteItemsRequest.TransactItems = transactWriteItems;
@@ -43,7 +43,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/batch-operation-lowlevel-dotnet.html for more details.
         /// </summary>
         /// <param name="batchRequests">List of WriteRequest</param>
-        public async Task BatchWrite(Dictionary<string, List<WriteRequest>> batchRequests)
+        public async Task BatchWriteAsync(Dictionary<string, List<WriteRequest>> batchRequests)
         {
             var batchWriteItemsRequest = new BatchWriteItemRequest();
             batchWriteItemsRequest.RequestItems = batchRequests;
@@ -65,7 +65,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html for more information
         /// </summary>
         /// <param name="updateItemRequest">UpdateItemRequest object</param>
-        public async Task Update(UpdateItemRequest updateItemRequest)
+        public async Task UpdateAsync(UpdateItemRequest updateItemRequest)
         {
             var response = await _client.UpdateItemAsync(updateItemRequest);
 

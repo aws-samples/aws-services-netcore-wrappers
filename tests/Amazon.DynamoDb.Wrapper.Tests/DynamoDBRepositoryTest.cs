@@ -44,7 +44,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _amazonDynamoDBClientMock.Setup(client => client.TransactWriteItemsAsync(It.IsAny<TransactWriteItemsRequest>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(transactionResponse));
 
             // act
-            await _repository.RunTransaction(input);
+            await _repository.RunTransactionAsync(input);
 
             // assert
             _amazonDynamoDBClientMock.Verify(client => client.TransactWriteItemsAsync(It.IsAny<TransactWriteItemsRequest>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -67,7 +67,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _amazonDynamoDBClientMock.Setup(client => client.BatchWriteItemAsync(It.IsAny<BatchWriteItemRequest>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(batchWriteItemResponse));
 
             // act
-            await _repository.BatchWrite(batchRequests);
+            await _repository.BatchWriteAsync(batchRequests);
 
             // assert
             _amazonDynamoDBClientMock.Verify(client => client.BatchWriteItemAsync(It.IsAny<BatchWriteItemRequest>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _amazonDynamoDBClientMock.Setup(client => client.UpdateItemAsync(It.IsAny<UpdateItemRequest>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(updateItemResponse));
 
             // act
-            await _repository.Update(updateItemRequest);
+            await _repository.UpdateAsync(updateItemRequest);
 
             // assert
             _amazonDynamoDBClientMock.Verify(client => client.UpdateItemAsync(It.IsAny<UpdateItemRequest>(), It.IsAny<CancellationToken>()), Times.Once);

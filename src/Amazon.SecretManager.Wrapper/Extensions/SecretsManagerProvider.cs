@@ -56,7 +56,7 @@ namespace Amazon.SecretManager.Wrapper
                 SecretId = secretName
             };
 
-            var response = client.GetSecretValueAsync(request).Result;
+            var response = client.GetSecretValueAsync(request).GetAwaiter().GetResult();
 
             if (response != null)
             {

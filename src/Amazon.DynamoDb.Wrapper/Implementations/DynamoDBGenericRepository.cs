@@ -39,37 +39,37 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         }
 
         #region High Level API (Object Persistence Model)
-        public async Task<TEntity> GetByPrimaryKey(object partitionKey)
+        public async Task<TEntity> GetByPrimaryKeyAsync(object partitionKey)
         {
             return await _context.LoadAsync<TEntity>(partitionKey);
         }
 
-        public async Task<TEntity> GetByPrimaryKey(object partitionKey, object sortKey)
+        public async Task<TEntity> GetByPrimaryKeyAsync(object partitionKey, object sortKey)
         {
             return await _context.LoadAsync<TEntity>(partitionKey, sortKey);
         }
 
-        public async Task Save(TEntity entity)
+        public async Task SaveAsync(TEntity entity)
         {
             await _context.SaveAsync(entity);
         }
 
-        public async Task Delete(TEntity entity)
+        public async Task DeleteAsync(TEntity entity)
         {
             await _context.DeleteAsync(entity);
         }
 
-        public async Task Delete(object partitionKey)
+        public async Task DeleteAsync(object partitionKey)
         {
             await _context.DeleteAsync<TEntity>(partitionKey);
         }
 
-        public async Task Delete(object partitionKey, object sortKey)
+        public async Task DeleteAsync(object partitionKey, object sortKey)
         {
             await _context.DeleteAsync<TEntity>(partitionKey, sortKey);
         }
 
-        public async Task<IEnumerable<TEntity>> Query(QueryOperationConfig queryOperationConfig)
+        public async Task<IEnumerable<TEntity>> QueryAsync(QueryOperationConfig queryOperationConfig)
         {
             var search = _context.FromQueryAsync<TEntity>(queryOperationConfig);
             var items = new List<TEntity>();
@@ -83,7 +83,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
             return items;
         }
 
-        public async Task<IEnumerable<TEntity>> Query(QueryFilter filter, bool backwardSearch = false, string indexName = "", List<string>? attributesToGet = null)
+        public async Task<IEnumerable<TEntity>> QueryAsync(QueryFilter filter, bool backwardSearch = false, string indexName = "", List<string>? attributesToGet = null)
         {
             var queryConfig = new QueryOperationConfig();
 
@@ -117,7 +117,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
             return items;
         }
 
-        public async Task<IEnumerable<TEntity>> Scan(ScanFilter filter, List<string>? attributesToGet = null)
+        public async Task<IEnumerable<TEntity>> ScanAsync(ScanFilter filter, List<string>? attributesToGet = null)
         {
             var scanConfig = new ScanOperationConfig();
             scanConfig.Filter = filter;
@@ -148,7 +148,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// <summary>
         /// A batch get operation can not return more than 100 items in a request, otherwise DynamoDB will reject entire batch operation.
         /// </summary>
-        public async Task<IEnumerable<TEntity>> BatchGet(List<object> partitionKeys)
+        public async Task<IEnumerable<TEntity>> BatchGetAsync(List<object> partitionKeys)
         {
             var batchRequest = _context.CreateBatchGet<TEntity>();
 
@@ -169,7 +169,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// <summary>
         /// A batch get operation can not return more than 100 items in a request, otherwise DynamoDB will reject entire batch operation.
         /// </summary>
-        public async Task<IEnumerable<TEntity>> BatchGet(List<Tuple<object, object>> partitionAndSortKeys)
+        public async Task<IEnumerable<TEntity>> BatchGetAsync(List<Tuple<object, object>> partitionAndSortKeys)
         {
             var batchRequest = _context.CreateBatchGet<TEntity>();
 
@@ -193,7 +193,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         /// </summary>
         /// <param name="entitiesToSave">Entities to put</param>
         /// <param name="entitiesToDelete">Entities to delete</param>
-        public async Task BatchWrite(List<TEntity> entitiesToSave, List<TEntity> entitiesToDelete)
+        public async Task BatchWriteAsync(List<TEntity> entitiesToSave, List<TEntity> entitiesToDelete)
         {
             var batchRequest = _context.CreateBatchWrite<TEntity>();
 
@@ -214,7 +214,7 @@ namespace Amazon.DynamoDb.Wrapper.Implementations
         #endregion
 
         #region Low Level API + High Level API (Hybrid)
-        public async Task Save(TEntity entity, string conditionExpression = "")
+        public async Task SaveAsync(TEntity entity, string conditionExpression = "")
         {
             var document = _context.ToDocument(entity);
             var attributeMaps = document.ToAttributeMap();

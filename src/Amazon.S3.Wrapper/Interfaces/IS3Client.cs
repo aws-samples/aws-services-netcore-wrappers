@@ -68,6 +68,6 @@ namespace Amazon.S3.Wrapper
         /// <param name="fileName">List of object keys to delete.</param>
         /// <param name="versionId">Propagates notification that operations should be canceled.</param>
         /// <returns>DeleteObjectsResponse</returns>
-        Task<bool> IsFileExists(string fileName, string versionId);
+        Task<bool> IsFileExistsAsync(string fileName, string versionId);
     }
 }

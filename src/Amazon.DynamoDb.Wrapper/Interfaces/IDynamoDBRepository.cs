@@ -16,7 +16,7 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html for more details
         /// </summary>
         /// <param name="batchRequests">List of TransactWriteItem</param>
-        Task RunTransaction(List<TransactWriteItem> transactWriteItems);
+        Task RunTransactionAsync(List<TransactWriteItem> transactWriteItems);
         
         /// <summary>
         /// This method puts or deletes multiple items in DynamoDB table in a batch.
@@ -24,13 +24,13 @@ namespace Amazon.DynamoDb.Wrapper.Interfaces
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/batch-operation-lowlevel-dotnet.html for more details.
         /// </summary>
         /// <param name="batchRequests">List of WriteRequest</param>
-        Task BatchWrite(Dictionary<string, List<WriteRequest>> batchRequests);
+        Task BatchWriteAsync(Dictionary<string, List<WriteRequest>> batchRequests);
 
         /// <summary>
         /// This method edits an existing item's attributes, or adds a new item to the table if it does not already exist.
         /// See https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html for more information
         /// </summary>
         /// <param name="updateItemRequest">UpdateItemRequest object</param>
-        Task Update(UpdateItemRequest updateItemRequest);
+        Task UpdateAsync(UpdateItemRequest updateItemRequest);
     }
 }

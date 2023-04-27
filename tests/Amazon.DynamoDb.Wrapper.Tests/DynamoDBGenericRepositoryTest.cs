@@ -47,7 +47,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.LoadAsync<TestEntity>(It.IsAny<string>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(loadAsyncResponse));
 
             // act
-            var response = await _testRepository.GetByPrimaryKey(PARTITION_KEY);
+            var response = await _testRepository.GetByPrimaryKeyAsync(PARTITION_KEY);
 
             // assert
             Assert.NotNull(response);
@@ -62,7 +62,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.LoadAsync<TestEntity>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(loadAsyncResponse));
 
             // act
-            var response = await _testRepository.GetByPrimaryKey(PARTITION_KEY, SORT_KEY);
+            var response = await _testRepository.GetByPrimaryKeyAsync(PARTITION_KEY, SORT_KEY);
 
             // assert
             Assert.NotNull(response);
@@ -76,7 +76,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.SaveAsync(It.IsAny<TestEntity>(), It.IsAny<CancellationToken>())).Returns(Task.CompletedTask);
 
             // act
-            await _testRepository.Save(It.IsAny<TestEntity>());
+            await _testRepository.SaveAsync(It.IsAny<TestEntity>());
 
             // assert
             _dynamoDBContextMock.Verify(context => context.SaveAsync(It.IsAny<TestEntity>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -89,7 +89,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.DeleteAsync(It.IsAny<TestEntity>(), It.IsAny<CancellationToken>())).Returns(Task.CompletedTask);
 
             // act
-            await _testRepository.Delete(It.IsAny<TestEntity>());
+            await _testRepository.DeleteAsync(It.IsAny<TestEntity>());
 
             // assert
             _dynamoDBContextMock.Verify(context => context.DeleteAsync(It.IsAny<TestEntity>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -102,7 +102,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.DeleteAsync<TestEntity>(It.IsAny<string>(), It.IsAny<CancellationToken>())).Returns(Task.CompletedTask);
 
             // act
-            await _testRepository.Delete(PARTITION_KEY);
+            await _testRepository.DeleteAsync(PARTITION_KEY);
 
             // assert
             _dynamoDBContextMock.Verify(context => context.DeleteAsync<TestEntity>(It.IsAny<string>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -115,7 +115,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _dynamoDBContextMock.Setup(context => context.DeleteAsync<TestEntity>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<CancellationToken>())).Returns(Task.CompletedTask);
 
             // act
-            await _testRepository.Delete(PARTITION_KEY, SORT_KEY);
+            await _testRepository.DeleteAsync(PARTITION_KEY, SORT_KEY);
 
             // assert
             _dynamoDBContextMock.Verify(context => context.DeleteAsync<TestEntity>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<CancellationToken>()), Times.Once);
@@ -135,7 +135,7 @@ namespace Amazon.DynamoDb.Wrapper.Tests
             _amazonDynamoDBClientMock.Setup(context => context.PutItemAsync(It.IsAny<PutItemRequest>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(putItemResponse));
 
             // act
-            await _testRepository.Save(testEntityRequest, conditionExpression);
+            await _testRepository.SaveAsync(testEntityRequest, conditionExpression);
 
             // assert
             _amazonDynamoDBClientMock.Verify(context => context.PutItemAsync(It.IsAny<PutItemRequest>(), It.IsAny<CancellationToken>()), Times.Once);
