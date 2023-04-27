@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DynamoDb.Wrapper", "src\Amazon.DynamoDb.Wrapper\Amazon.DynamoDb.Wrapper.csproj", "{B3732566-7863-478D-942F-37D99E911BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sns.Wrapper", "src\Amazon.Sns.Wrapper\Amazon.Sns.Wrapper.csproj", "{3284CD5A-8152-4FC1-A637-D286DA219395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper", "src\Amazon.Sqs.Wrapper\Amazon.Sqs.Wrapper.csproj", "{993C882E-E74F-4203-AD8F-CAACD0473AD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.S3.Wrapper", "src\Amazon.S3.Wrapper\Amazon.S3.Wrapper.csproj", "{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Ses.Wrapper", "src\Amazon.Ses.Wrapper\Amazon.Ses.Wrapper.csproj", "{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SecretManager.Wrapper", "src\Amazon.SecretManager.Wrapper\Amazon.SecretManager.Wrapper.csproj", "{31A52626-9CED-4DA3-B420-F57EA17294BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DynamoDb.Wrapper.Tests", "tests\Amazon.DynamoDb.Wrapper.Tests\Amazon.DynamoDb.Wrapper.Tests.csproj", "{43F4097D-2632-4637-993A-C97764544E2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sns.Wrapper.Tests", "tests\Amazon.Sns.Wrapper.Tests\Amazon.Sns.Wrapper.Tests.csproj", "{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper.System.Tests", "tests\Amazon.Sqs.Wrapper.System.Tests\Amazon.Sqs.Wrapper.System.Tests.csproj", "{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper.Tests", "tests\Amazon.Sqs.Wrapper.Tests\Amazon.Sqs.Wrapper.Tests.csproj", "{55CA9744-A671-49C0-926B-276CFA6CE724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3732566-7863-478D-942F-37D99E911BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3732566-7863-478D-942F-37D99E911BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3732566-7863-478D-942F-37D99E911BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3732566-7863-478D-942F-37D99E911BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3284CD5A-8152-4FC1-A637-D286DA219395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3284CD5A-8152-4FC1-A637-D286DA219395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3284CD5A-8152-4FC1-A637-D286DA219395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3284CD5A-8152-4FC1-A637-D286DA219395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993C882E-E74F-4203-AD8F-CAACD0473AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993C882E-E74F-4203-AD8F-CAACD0473AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993C882E-E74F-4203-AD8F-CAACD0473AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993C882E-E74F-4203-AD8F-CAACD0473AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A52626-9CED-4DA3-B420-F57EA17294BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A52626-9CED-4DA3-B420-F57EA17294BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A52626-9CED-4DA3-B420-F57EA17294BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A52626-9CED-4DA3-B420-F57EA17294BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F4097D-2632-4637-993A-C97764544E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F4097D-2632-4637-993A-C97764544E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F4097D-2632-4637-993A-C97764544E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F4097D-2632-4637-993A-C97764544E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55CA9744-A671-49C0-926B-276CFA6CE724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55CA9744-A671-49C0-926B-276CFA6CE724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55CA9744-A671-49C0-926B-276CFA6CE724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55CA9744-A671-49C0-926B-276CFA6CE724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BC4CD6E-853E-4D0B-B29D-7FA1BD643D28}
+	EndGlobalSection
+EndGlobal

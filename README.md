@@ -1,11 +1,10 @@
-## My Project
+## aws-services-netcore-wrappers
 
-TODO: Fill this README out!
+This is a AWS Services wrapper project providing functionality to use different AWS Services in an simpler way.
 
-Be sure to:
+Each library has a README file that describes how to use that specific library.
 
-* Change the title in this README
-* Edit your repository description on GitHub
+It is advised to package each library as a nuget package to consume it.
 
 ## Security
 
