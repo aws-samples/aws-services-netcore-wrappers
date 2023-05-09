@@ -16,7 +16,7 @@ This library provides implementation for various DynamoDB opearations using **Ob
 3. Go to `program.cs` file and register DynamoDB services like below.
     ```
     // 1. Add required namespace
-    using DynamoDB.Repository;
+    using Amazon.DynamoDb.Wrapper.Extensions;
 
     var builder = WebApplication.CreateBuilder(args);
 
