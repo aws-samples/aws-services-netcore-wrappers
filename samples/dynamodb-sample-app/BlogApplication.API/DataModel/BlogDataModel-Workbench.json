@@ -1,0 +1,236 @@
+{
+  "ModelName": "Blog Data Model - Sample App",
+  "ModelMetadata": {
+    "Author": "Ankush Jain",
+    "DateCreated": "Apr 20, 2022, 12:15 AM",
+    "DateLastModified": "Jun 27, 2022, 12:20 AM",
+    "Description": "",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "Blogs",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "Title",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Content",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "CreatedDate",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "AuthorId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "AuthorName",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "AuthorEmail",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Published",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "BlogId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "ViewCount",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "GSI1PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2SK",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "BlogsByAuthor",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI1PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI1SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "KEYS_ONLY"
+          }
+        },
+        {
+          "IndexName": "BlogsByCreatedDate",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI2PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI2SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "KEYS_ONLY"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "BLOG"
+          },
+          "SK": {
+            "S": "BLOG#1"
+          },
+          "Title": {
+            "S": "Blog Title 1"
+          },
+          "Content": {
+            "S": "Blog Content 1"
+          },
+          "CreatedDate": {
+            "S": "2022-05-19"
+          },
+          "AuthorId": {
+            "S": "AUTHOR#1"
+          },
+          "Published": {
+            "BOOL": true
+          },
+          "ViewCount": {
+            "N": "52"
+          },
+          "GSI1PK": {
+            "S": "AUTHOR#1"
+          },
+          "GSI1SK": {
+            "S": "2022-05-19"
+          },
+          "GSI2PK": {
+            "S": "BLOG"
+          },
+          "GSI2SK": {
+            "S": "2022-05-19"
+          }
+        },
+        {
+          "PK": {
+            "S": "BLOG"
+          },
+          "SK": {
+            "S": "BLOG#2"
+          },
+          "Title": {
+            "S": "Blog Title 2"
+          },
+          "Content": {
+            "S": "Blog Content 2"
+          },
+          "CreatedDate": {
+            "S": "2022-05-22"
+          },
+          "AuthorId": {
+            "S": "AUTHOR#2"
+          },
+          "Published": {
+            "BOOL": true
+          },
+          "ViewCount": {
+            "N": "69"
+          },
+          "GSI1PK": {
+            "S": "AUTHOR#2"
+          },
+          "GSI1SK": {
+            "S": "2022-05-22"
+          },
+          "GSI2PK": {
+            "S": "BLOG"
+          },
+          "GSI2SK": {
+            "S": "2022-05-22"
+          }
+        },
+        {
+          "PK": {
+            "S": "AUTHOR"
+          },
+          "SK": {
+            "S": "AUTHOR#1"
+          },
+          "AuthorName": {
+            "S": "John Thomas"
+          },
+          "AuthorEmail": {
+            "S": "johnthomas@gmail.com"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
