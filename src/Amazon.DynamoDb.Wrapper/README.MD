@@ -100,7 +100,7 @@ public class GSI2Entity : BaseEntity
 ```
 
 
-## 3. About Repository classes
+### 3. About Repository classes
 This library consists of 2 repository classes.
 1. `IDynamoDBGenericRepository<T>`
 2. `IDynamoDBRepository`
@@ -191,7 +191,7 @@ public class AuthorService : IAuthorService
         // Add additional methods here
 ```
 
-### 4. Operation examples
+### 5. Operation examples
 These examples will help you to in understanding, how to use this library to perform various common operations on a DynamoDB table.
 
 ##### Load
@@ -366,7 +366,7 @@ if (writeRequests.Any())
 }
 ```
 
-## 4. IAM Permissions required for the operations
+## IAM Permissions required for the operations
 
 a) IAM Permission required for all the operations are:
 
@@ -392,3 +392,6 @@ a) IAM Permission required for all the operations are:
     ]
 }
 ```
+
+## Sample application
+Refer this [sample Blog API application](../../samples/dynamodb-sample-app) written in ASP.NET 6 to explain how to use DynamoDB repository in real-world application.
