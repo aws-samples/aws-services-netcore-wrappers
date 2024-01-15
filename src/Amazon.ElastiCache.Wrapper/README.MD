@@ -13,7 +13,7 @@ This library is a wrapper allowing you to perform operations against Elastic Cac
     service.RegisterElasticCacheServices(builder.Configuration);
 
     ```
-    Here `bucketName` comes from configuration that could be `appsettings.json` file or Environment variable or System Manager Parameter store. Region of ElastiCache comes from AWS project such as mentioned below.
+    Here `Configuration` is used to read profile settings from `appsettings.json` file (if defined). by default, it will look for default profile and 'us-east-1' as the region.
     ```
     {
       "AWS": {
