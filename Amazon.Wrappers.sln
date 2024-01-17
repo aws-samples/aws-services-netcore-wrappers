@@ -1,27 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1705.4
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DynamoDb.Wrapper", "src\Amazon.DynamoDb.Wrapper\Amazon.DynamoDb.Wrapper.csproj", "{B3732566-7863-478D-942F-37D99E911BFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.DynamoDb.Wrapper", "src\Amazon.DynamoDb.Wrapper\Amazon.DynamoDb.Wrapper.csproj", "{B3732566-7863-478D-942F-37D99E911BFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sns.Wrapper", "src\Amazon.Sns.Wrapper\Amazon.Sns.Wrapper.csproj", "{3284CD5A-8152-4FC1-A637-D286DA219395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Sns.Wrapper", "src\Amazon.Sns.Wrapper\Amazon.Sns.Wrapper.csproj", "{3284CD5A-8152-4FC1-A637-D286DA219395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper", "src\Amazon.Sqs.Wrapper\Amazon.Sqs.Wrapper.csproj", "{993C882E-E74F-4203-AD8F-CAACD0473AD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Sqs.Wrapper", "src\Amazon.Sqs.Wrapper\Amazon.Sqs.Wrapper.csproj", "{993C882E-E74F-4203-AD8F-CAACD0473AD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.S3.Wrapper", "src\Amazon.S3.Wrapper\Amazon.S3.Wrapper.csproj", "{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.S3.Wrapper", "src\Amazon.S3.Wrapper\Amazon.S3.Wrapper.csproj", "{EE3AA9EA-04DA-40C5-B67F-BAB0B3471F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Ses.Wrapper", "src\Amazon.Ses.Wrapper\Amazon.Ses.Wrapper.csproj", "{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Ses.Wrapper", "src\Amazon.Ses.Wrapper\Amazon.Ses.Wrapper.csproj", "{5CF9BCFF-51B0-4C0C-AEFA-177EDF461C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SecretManager.Wrapper", "src\Amazon.SecretManager.Wrapper\Amazon.SecretManager.Wrapper.csproj", "{31A52626-9CED-4DA3-B420-F57EA17294BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SecretManager.Wrapper", "src\Amazon.SecretManager.Wrapper\Amazon.SecretManager.Wrapper.csproj", "{31A52626-9CED-4DA3-B420-F57EA17294BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DynamoDb.Wrapper.Tests", "tests\Amazon.DynamoDb.Wrapper.Tests\Amazon.DynamoDb.Wrapper.Tests.csproj", "{43F4097D-2632-4637-993A-C97764544E2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.DynamoDb.Wrapper.Tests", "tests\Amazon.DynamoDb.Wrapper.Tests\Amazon.DynamoDb.Wrapper.Tests.csproj", "{43F4097D-2632-4637-993A-C97764544E2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sns.Wrapper.Tests", "tests\Amazon.Sns.Wrapper.Tests\Amazon.Sns.Wrapper.Tests.csproj", "{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Sns.Wrapper.Tests", "tests\Amazon.Sns.Wrapper.Tests\Amazon.Sns.Wrapper.Tests.csproj", "{D75E6B85-69B2-48D6-8434-18CC17DFD3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper.System.Tests", "tests\Amazon.Sqs.Wrapper.System.Tests\Amazon.Sqs.Wrapper.System.Tests.csproj", "{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Sqs.Wrapper.System.Tests", "tests\Amazon.Sqs.Wrapper.System.Tests\Amazon.Sqs.Wrapper.System.Tests.csproj", "{F42EBEA4-3268-4137-B04E-CCEC46B99F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Sqs.Wrapper.Tests", "tests\Amazon.Sqs.Wrapper.Tests\Amazon.Sqs.Wrapper.Tests.csproj", "{55CA9744-A671-49C0-926B-276CFA6CE724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.Sqs.Wrapper.Tests", "tests\Amazon.Sqs.Wrapper.Tests\Amazon.Sqs.Wrapper.Tests.csproj", "{55CA9744-A671-49C0-926B-276CFA6CE724}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.ElastiCache.Wrapper", "src\Amazon.ElastiCache.Wrapper\Amazon.ElastiCache.Wrapper.csproj", "{84E28694-8799-4AF6-A3CC-027D5BF03C2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{55CA9744-A671-49C0-926B-276CFA6CE724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55CA9744-A671-49C0-926B-276CFA6CE724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55CA9744-A671-49C0-926B-276CFA6CE724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E28694-8799-4AF6-A3CC-027D5BF03C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E28694-8799-4AF6-A3CC-027D5BF03C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E28694-8799-4AF6-A3CC-027D5BF03C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E28694-8799-4AF6-A3CC-027D5BF03C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
