@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Amazon.Observability\Amazon.Observability.csproj" />
+    <ProjectReference Include="..\..\src\Amazon.Observability\Amazon.Observability.Wrapper\Amazon.Observability.Wrapper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

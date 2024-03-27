@@ -1,0 +1,42 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+ 
+exporters:
+  logging:
+    loglevel: debug
+  awsxray:
+    region: us-east-1
+    aws_log_groups: ["example-api-logs"]
+  awsemf:
+    log_group_name: "example-api-metrics"
+    log_stream_name: "example-api-stream"
+  awscloudwatchlogs:
+    log_group_name: "example-api-logs"
+    log_stream_name: "example-api-stream"
+
+service:
+  telemetry:
+    logs:
+      level: DEBUG
+  pipelines:
+    traces:
+      receivers:
+        - otlp
+      exporters:
+        - logging
+        - awsxray
+    metrics:
+      receivers:
+        - otlp
+      exporters:
+        - logging
+        - awsemf
+    logs:
+      receivers: 
+        - otlp
+      exporters:
+        - logging
+        - awscloudwatchlogs
