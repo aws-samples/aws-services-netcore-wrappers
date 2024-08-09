@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Options;
 using Amazon.Sqs.Wrapper.Configuration;
 using Amazon.Sqs.Wrapper.Interfaces;
+using Newtonsoft.Json.Linq;
 
 namespace Amazon.Sqs.Wrapper
 {
@@ -172,6 +173,74 @@ namespace Amazon.Sqs.Wrapper
             var response = await client.DeleteMessageAsync(deleteMessageRequest, ct);
             return (int)response.HttpStatusCode;
         }
+
+        /// <summary>
+        /// Retrieves the Redrive Policy of the specified SQS Queue.
+        /// </summary>
+        /// <param name="queueUrl">URL of the SQS Queue</param>
+        /// <param name="ct">Cancellation token</param>
+        /// <returns>Returns a JObject representing the Redrive Policy, or null if not found</returns>
+        public async Task<JObject?> GetRedrivePolicyAsync(string queueUrl, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(queueUrl))
+            {
+                throw new ArgumentException("Queue URL cannot be empty");
+            }
+
+            try
+            {
+                var request = new GetQueueAttributesRequest
+                {
+                    QueueUrl = queueUrl,
+                    AttributeNames = new List<string> { "RedrivePolicy" }
+                };
+
+                var response = await client.GetQueueAttributesAsync(request, ct);
+
+                if (response.Attributes.TryGetValue("RedrivePolicy", out var redrivePolicy))
+                {
+                    return JObject.Parse(redrivePolicy);
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error getting RedrivePolicy for queue URL '{queueUrl}': {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Starts a message move task from the source ARN to the destination ARN.
+        /// </summary>
+        /// <param name="sourceArn">ARN of the source DLQ</param>
+        /// <param name="destinationArn">ARN of the destination queue (optional)</param>
+        /// <param name="ct">Cancellation token</param>
+        /// <returns>Returns the HTTP status code of the response</returns>
+        public async Task<int> StartMessageMoveTaskAsync(string sourceArn, string? destinationArn = null, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(sourceArn))
+            {
+                throw new ArgumentException("Source ARN cannot be empty");
+            }
+
+            try
+            {
+                var request = new StartMessageMoveTaskRequest
+                {
+                    SourceArn = sourceArn,
+                    DestinationArn = destinationArn
+                };
+
+                var response = await client.StartMessageMoveTaskAsync(request, ct);
+                return (int)response.HttpStatusCode;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error starting message move task for source ARN '{sourceArn}': {ex.Message}", ex);
+            }
+        }
+
 
     }
 }

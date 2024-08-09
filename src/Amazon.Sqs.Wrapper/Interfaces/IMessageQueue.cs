@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Amazon.Sqs.Wrapper.Interfaces
 {
@@ -73,5 +74,22 @@ namespace Amazon.Sqs.Wrapper.Interfaces
         ///     notice of cancellation.</param>
         /// <returns>Returns an int containing HttpStatusCode returned from Amazon SQS</returns>
         Task<int> DeleteMessageAsync(string receiptHandle, CancellationToken ct = default);
+
+        /// <summary>
+        /// Starts a message move task to move messages from one queue to another.
+        /// </summary>
+        /// <param name="sourceArn">ARN of the source queue</param>
+        /// <param name="destinationArn">ARN of the destination queue (optional)</param>
+        /// <param name="ct">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Returns an int containing HttpStatusCode returned from Amazon SQS</returns>
+        Task<int> StartMessageMoveTaskAsync(string sourceArn, string? destinationArn = null, CancellationToken ct = default);
+
+        /// <summary>
+        /// Retrieves the redrive policy for a specified queue.
+        /// </summary>
+        /// <param name="queueUrl">URL of the queue</param>
+        /// <param name="ct">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Returns a JObject containing the redrive policy</returns>
+        Task<JObject?> GetRedrivePolicyAsync(string queueUrl, CancellationToken ct = default);
     }
 }

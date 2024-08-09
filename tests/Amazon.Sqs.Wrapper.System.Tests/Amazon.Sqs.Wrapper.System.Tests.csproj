@@ -9,7 +9,7 @@
 
   <ItemGroup>
 	  
-    <PackageReference Include="AWSSDK.SQS" Version="3.7.2.95" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.7.400.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
