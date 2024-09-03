@@ -46,6 +46,8 @@ This library is a wrapper allowing you to perform operations against Simple Queu
     - `SendMessageAsync` Sends a message to SQS Queue. SendMessageAsync have two overloads - one which sends message to standard queue and another sends message to FIFO queue.
     - `ReceiveMessageAsync` Receives a message from the queue. ReceiveMessageAsync have two overloads - one which takes a delegate to specify how message needs to be processed. Other does not take any argument except optional cancellation token, so caller should process the message after response is returned from this method.
     - `DeleteMessageAsync` Deletes a message from SQS based on receiptHandle provided.
+    - `StartMessageMoveTaskAsync` Initiates a task to move messages from a Dead Letter Queue (DLQ) to the main queue. This method helps in managing and recovering messages that failed to be processed.
+    - `GetRedrivePolicyAsync` Retrieves the redrive policy for the specified queue, which includes the ARN of the Dead Letter Queue (DLQ) required as input for the StartMessageMoveTaskAsync method.
 
 2. Once the `IMessageQueue` is injected, you can call the above methods with appropriate inputs.
 
@@ -77,7 +79,9 @@ a) IAM Permission required for all the operations are:
                 "sqs:ReceiveMessage",
                 "sqs:DeleteQueue",
                 "sqs:SendMessage",
-                "sqs:CreateQueue"
+                "sqs:CreateQueue",
+                "sqs:GetQueueAttributes",
+                "sqs:StartMessageMoveTask"
             ],
             "Resource": "arn:aws:sqs:<Region>:<AWSAccount>:<QueueName>"
         }

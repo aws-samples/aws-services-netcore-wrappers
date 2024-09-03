@@ -8,6 +8,9 @@ using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace Amazon.Sqs.Wrapper.Tests
 {
@@ -149,6 +152,63 @@ namespace Amazon.Sqs.Wrapper.Tests
             var response = await sqsQueue.DeleteMessageAsync(receiptHandle);
             //assert
             Assert.Equal((int)deleteMessageResponse.HttpStatusCode, response);
+        }
+
+        [Fact]
+        public async Task GetRedrivePolicyIsSuccessful()
+        {
+            // arrange
+            var queueUrl = "https://sqs.us-east-1.amazonaws.com/000000000000/fake-sqs-queue";
+            var expectedRedrivePolicy = new JObject
+            {
+                ["deadLetterTargetArn"] = "arn:aws:sqs:us-east-1:000000000000:dead-letter-queue",
+                ["maxReceiveCount"] = 5
+            };
+
+            var getQueueAttributesResponse = new GetQueueAttributesResponse
+            {
+                Attributes = new Dictionary<string, string>
+                {
+                    { "RedrivePolicy", expectedRedrivePolicy.ToString(Formatting.None) }
+                }
+            };
+
+            _fakeSqsService.Setup(
+                p => p.GetQueueAttributesAsync(It.Is<GetQueueAttributesRequest>(r => r.QueueUrl == queueUrl && r.AttributeNames.Contains("RedrivePolicy")), default))
+                .Returns(Task.FromResult(getQueueAttributesResponse));
+            _fakeSqsConfig.Setup(c => c.Value).Returns(_fakeSqsConfigValues);
+            var sqsQueue = new SqsMessageQueue(_fakeSqsService.Object, _fakeSqsConfig.Object);
+
+            // act
+            var actualRedrivePolicy = await sqsQueue.GetRedrivePolicyAsync(queueUrl);
+
+            // assert
+            Assert.NotNull(actualRedrivePolicy);
+            Assert.Equal(expectedRedrivePolicy.ToString(Formatting.None), actualRedrivePolicy?.ToString(Formatting.None));
+        }
+
+        [Fact]
+        public async Task StartMessageMoveTaskIsSuccessful()
+        {
+            // arrange
+            var sourceArn = "arn:aws:sqs:us-east-1:000000000000:source-queue";
+            var destinationArn = "arn:aws:sqs:us-east-1:000000000000:destination-queue";
+            var expectedResponse = new StartMessageMoveTaskResponse
+            {
+                HttpStatusCode = HttpStatusCode.OK
+            };
+
+            _fakeSqsService.Setup(
+                p => p.StartMessageMoveTaskAsync(It.Is<StartMessageMoveTaskRequest>(r => r.SourceArn == sourceArn && r.DestinationArn == destinationArn), default))
+                .Returns(Task.FromResult(expectedResponse));
+            _fakeSqsConfig.Setup(c => c.Value).Returns(_fakeSqsConfigValues);
+            var sqsQueue = new SqsMessageQueue(_fakeSqsService.Object, _fakeSqsConfig.Object);
+
+            // act
+            var responseStatusCode = await sqsQueue.StartMessageMoveTaskAsync(sourceArn, destinationArn);
+
+            // assert
+            Assert.Equal((int)expectedResponse.HttpStatusCode, responseStatusCode);
         }
     }
 }
