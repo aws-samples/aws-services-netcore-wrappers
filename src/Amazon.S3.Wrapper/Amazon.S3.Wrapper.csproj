@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<AssemblyName>Amazon.S3.Wrapper</AssemblyName>  
-	<TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
+	<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 	<Company>Amazon.S3.Wrapper</Company>
 	<Authors>Amazon.S3.Wrapper</Authors>	 
 	<Copyright>Copyright © 2021</Copyright>
@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.S3" Version="3.7.1.7" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.7.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

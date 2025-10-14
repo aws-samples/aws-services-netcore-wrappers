@@ -1,5 +1,4 @@
-﻿using Amazon.S3;
-using Amazon.S3.Model;
+﻿using Amazon.S3.Model;
 using Amazon.S3.Wrapper.Enums;
 using System.Collections.Generic;
 using System.IO;
