@@ -11,7 +11,7 @@
 		<PackageReference Include="AWSSDK.SecurityToken" Version="3.7.0.8" />
 		<PackageReference Include="AWSSDK.SimpleEmail" Version="3.7.0.8" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
-		<PackageReference Include="MimeKit" Version="2.11.0" />
+		<PackageReference Include="MimeKit" Version="4.15.1" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
 	</ItemGroup>
 </Project>
